@@ -371,21 +371,31 @@ const ServicesTab = () => {
 
 const ServiceForm = ({ onSubmit }: { onSubmit: (data: any) => void }) => {
   const [name, setName] = useState('');
-  const [price, setPrice] = useState(0);
-  const [workshopPrice, setWorkshopPrice] = useState(0);
-  const [comm, setComm] = useState(0);
-  const [workshopComm, setWorkshopComm] = useState(0);
+  const [price, setPrice] = useState('');
+  const [workshopPrice, setWorkshopPrice] = useState('');
+  const [comm, setComm] = useState('');
+  const [workshopComm, setWorkshopComm] = useState('');
+
+  const handleSubmit = () => {
+    onSubmit({ 
+      name, 
+      price: Number(price) || 0, 
+      workshopPrice: Number(workshopPrice) || 0, 
+      workerCommission: Number(comm) || 0, 
+      workshopWorkerCommission: Number(workshopComm) || 0 
+    });
+  };
 
   return (
     <div className="space-y-4">
       <div className="space-y-2"><Label>Nombre</Label><Input value={name} onChange={e => setName(e.target.value)} /></div>
-      <div className="space-y-2"><Label>Precio Público</Label><Input type="number" value={price} onChange={e => setPrice(Number(e.target.value))} /></div>
-      <div className="space-y-2"><Label>Precio Taller</Label><Input type="number" value={workshopPrice} onChange={e => setWorkshopPrice(Number(e.target.value))} /></div>
+      <div className="space-y-2"><Label>Precio Público</Label><Input type="number" value={price} onChange={e => setPrice(e.target.value)} placeholder="0" /></div>
+      <div className="space-y-2"><Label>Precio Taller</Label><Input type="number" value={workshopPrice} onChange={e => setWorkshopPrice(e.target.value)} placeholder="0" /></div>
       <div className="grid grid-cols-2 gap-4">
-        <div className="space-y-2"><Label>Comisión Normal</Label><Input type="number" value={comm} onChange={e => setComm(Number(e.target.value))} /></div>
-        <div className="space-y-2"><Label>Comisión Taller</Label><Input type="number" value={workshopComm} onChange={e => setWorkshopComm(Number(e.target.value))} /></div>
+        <div className="space-y-2"><Label>Comisión Normal</Label><Input type="number" value={comm} onChange={e => setComm(e.target.value)} placeholder="0" /></div>
+        <div className="space-y-2"><Label>Comisión Taller</Label><Input type="number" value={workshopComm} onChange={e => setWorkshopComm(e.target.value)} placeholder="0" /></div>
       </div>
-      <Button onClick={() => onSubmit({ name, price, workshopPrice, workerCommission: comm, workshopWorkerCommission: workshopComm })} className="w-full">Guardar</Button>
+      <Button onClick={handleSubmit} className="w-full">Guardar</Button>
     </div>
   );
 };

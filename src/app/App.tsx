@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TouchBackend } from 'react-dnd-touch-backend';
 import { StoreProvider, useStore } from './context/StoreContext';
 import { Dashboard } from './components/Dashboard';
 import { AdminPanel } from './components/AdminPanel';
@@ -38,7 +38,7 @@ const MainApp = () => {
 export default function App() {
   return (
     <StoreProvider>
-      <DndProvider backend={HTML5Backend}>
+      <DndProvider backend={TouchBackend} options={{ enableMouseEvents: true }}>
         <MainApp />
         <Toaster position="top-right" />
       </DndProvider>
