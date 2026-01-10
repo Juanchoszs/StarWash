@@ -1,0 +1,79 @@
+####################################
+# 🔐 VARIABLES Y SECRETOS
+####################################
+.env
+.env.*
+!.env.example
+secrets.json
+appsettings.json
+appsettings.*.json
+*.key
+*.pem
+*.crt
+
+####################################
+# 📦 DEPENDENCIAS
+####################################
+node_modules/
+vendor/
+packages/
+
+####################################
+# 🧱 BUILD / COMPILADOS
+####################################
+bin/
+obj/
+dist/
+build/
+out/
+target/
+
+####################################
+# 🖥️ SISTEMA OPERATIVO
+####################################
+.DS_Store
+Thumbs.db
+desktop.ini
+
+####################################
+# 🧠 EDITORES / IDEs
+####################################
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+####################################
+# 🧪 LOGS Y TEMPORALES
+####################################
+*.log
+logs/
+tmp/
+temp/
+
+####################################
+# 🗄️ BASES DE DATOS LOCALES
+####################################
+*.sqlite
+*.db
+*.mdb
+
+####################################
+# 🧾 CACHE
+####################################
+.cache/
+.npm/
+.yarn/
+.pnpm-store/
+
+####################################
+# 🔄 OTROS
+####################################
+coverage/
+.env.local
+.env.development
+.env.production
+.env.test
