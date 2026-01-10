@@ -31,15 +31,16 @@ export const Dashboard: React.FC<DashboardProps> = ({ onOpenAdmin }) => {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col md:flex-row overflow-hidden p-4 gap-4">
+      {/* Main Content */}
+      <main className="flex-1 flex flex-col md:flex-row overflow-hidden p-2 md:p-4 gap-2 md:gap-4">
         {/* Waiting Room - Bottom on mobile (order-2), Left on desktop (order-1) */}
-        <div className="h-48 md:h-full md:w-80 flex-shrink-0 border-t md:border-t-0 md:border-r border-slate-200 pt-4 md:pt-0 md:pr-4 overflow-hidden order-2 md:order-1">
+        <div className="flex-1 md:h-full md:w-80 md:flex-none border-t md:border-t-0 md:border-r border-slate-200 pt-2 md:pt-0 md:pr-4 overflow-hidden order-2 md:order-1 min-h-0">
           <WaitingRoom />
         </div>
 
         {/* Workers Grid - Top on mobile (order-1), Right on desktop (order-2) */}
-        <div className="flex-1 overflow-x-auto overflow-y-hidden order-1 md:order-2">
-          <div className="flex gap-4 h-full min-w-max pb-2 pr-2">
+        <div className="h-56 md:h-full flex-shrink-0 overflow-x-auto overflow-y-hidden order-1 md:order-2 md:flex-1">
+          <div className="flex gap-2 md:gap-4 h-full min-w-max pb-2 md:pr-2">
             {activeWorkers.length === 0 ? (
               <div className="flex items-center justify-center w-full h-full border-2 border-dashed rounded-xl border-slate-200">
                 <div className="text-center text-slate-400 p-4">
